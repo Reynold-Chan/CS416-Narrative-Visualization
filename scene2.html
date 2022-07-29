@@ -71,6 +71,32 @@
         svg.append("g")
             .call(d3.axisLeft(y));
 
+        // text label for the x axis
+        svg.append("text")
+            .attr("transform",
+                "translate(" + (width / 2) + " ," +
+                (height + margin.top + 20) + ")")
+            .style("text-anchor", "middle")
+            .text("Price Range");
+        // text label for the y axis
+        svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0 - margin.left)
+            .attr("x", 0 - (height / 2))
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .text("Rating");
+
+        svg.append("text")
+            .attr("x", (width / 2))
+            .attr("y", (margin.top / 2))
+            .attr("text-anchor", "middle")
+            .style("font-size", "16px")
+            .style("text-decoration", "underline")
+            .text("Price vs Rating by Year");
+
+
+
         // Add a tooltip div. Here I define the general feature of the tooltip: stuff that do not depend on the data point.
         // Its opacity is set to 0: we don't see it by default.
         var tooltip = d3.select("#my_dataviz")
@@ -160,6 +186,28 @@
                 .on("mousemove", mousemove)
                 .on("mouseleave", mouseleave)
 
+            // text label for the x axis
+            svg.append("text")
+                .attr("transform",
+                    "translate(" + (width / 2) + " ," +
+                    (height + margin.top + 20) + ")")
+                .style("text-anchor", "middle")
+                .text("Price Range");
+            // text label for the y axis
+            svg.append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 0 - margin.left)
+                .attr("x", 0 - (height / 2))
+                .attr("dy", "1em")
+                .style("text-anchor", "middle")
+                .text("Rating");
+            svg.append("text")
+                .attr("x", (width / 2))
+                .attr("y", (margin.top / 2))
+                .attr("text-anchor", "middle")
+                .style("font-size", "16px")
+                .style("text-decoration", "underline")
+                .text("Price vs Rating by Year");
 
             // Create new data with the selection?
         }
@@ -176,5 +224,14 @@
     });
 
 </script>
+
+<p>
+    This graph shows a scatter plot of the pricing vs the rating. By hovering over the points, you can inquire more
+    about what the book is and who is the author. This gives a quick easy way to distinguish by year good books and is
+    another form of inquiring about books information.
+
+    The second graph doesn't show much correlation but it's always great to know what books are highly rated and cheap.
+    Continuing from the first graph , you can now explore what books you want to read by year.
+</p>
 
 </html>

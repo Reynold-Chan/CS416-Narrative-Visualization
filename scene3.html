@@ -54,7 +54,34 @@
             .enter()
             .append('option')
             .text(function (d) { return d; }) // text showed in the menu
-            .attr("value", function (d) { return d; }) // corresponding value returned by the button
+            .attr("value", function (d) { return d; }) // corresponding value returned by the 
+
+        // text label for the x axis
+        svg.append("text")
+            .attr("transform",
+                "translate(" + (width / 2) + " ," +
+                (height + margin.top + 20) + ")")
+            .style("text-anchor", "middle")
+            .text("Price Range");
+        // text label for the y axis
+        svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0 - margin.left)
+            .attr("x", 0 - (height / 2))
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .text("Frequency");
+
+
+        svg.append("text")
+            .attr("x", (width / 2))
+            .attr("y", (margin.top / 2))
+            .attr("text-anchor", "middle")
+            .style("font-size", "16px")
+            .style("text-decoration", "underline")
+            .text("Price Histogram by Genre");
+
+
 
         var dataFilter = data.filter(function (d) { return d.Genre == allGroup[0] })
 
@@ -133,6 +160,31 @@
                 .style("fill", "#69b3a2")
 
             // Create new data with the selection?
+            // text label for the x axis
+            svg.append("text")
+                .attr("transform",
+                    "translate(" + (width / 2) + " ," +
+                    (height + margin.top + 20) + ")")
+                .style("text-anchor", "middle")
+                .text("Price Range");
+            // text label for the y axis
+            svg.append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 0 - margin.left)
+                .attr("x", 0 - (height / 2))
+                .attr("dy", "1em")
+                .style("text-anchor", "middle")
+                .text("Frequency");
+
+
+            svg.append("text")
+                .attr("x", (width / 2))
+                .attr("y", (margin.top / 2))
+                .attr("text-anchor", "middle")
+                .style("font-size", "16px")
+                .style("text-decoration", "underline")
+                .text("Price Histogram by Genre");
+
         }
 
         // When the button is changed, run the updateChart function
@@ -169,6 +221,11 @@
 
 
 </script>
+<p>
+    Finally this shows another inquiry into the pricing relationship. This time you can see definitively that non
+    fiction books are more expensive on average compared to fiction books.
 
+    You can toggle between the fiction and non friction distributions of the pricing for these books.
+</p>
 
 </html>

@@ -46,7 +46,7 @@
     d3.csv("./data/books.csv", function (data) {
 
 
-        
+
 
         //X axis: scale and draw:
         var x = d3.scaleLinear()
@@ -76,6 +76,14 @@
             .attr("dy", "1em")
             .style("text-anchor", "middle")
             .text("Frequency");
+
+        svg.append("text")
+            .attr("x", (width / 2))
+            .attr("y", (margin.top / 2))
+            .attr("text-anchor", "middle")
+            .style("font-size", "16px")
+            .style("text-decoration", "underline")
+            .text("Price Histogram");
 
         // A function that builds the graph for a specific value of bin
         function update(nBin) {
@@ -135,6 +143,16 @@
 </script>
 
 <p>
-    What
+
 </p>
+<p>
+    This graph shows a simple histogram of all the prices for the top selling novels. Feel free to adjust the bins to
+    get a more precise histogram per their desire to inquire about the distribution of these novels.
+
+    This first graph shows that most books are around 10 - 20 dollars range. There are some extreme books, but it does
+    make sense overall that good books are also cheap ! otherwise people can't afford to buy them.
+
+
+</p>
+
 </html>
